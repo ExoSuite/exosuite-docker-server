@@ -10,3 +10,5 @@ COPY exosuite-users-api /var/www/exosuite-users-api
 
 RUN find  /var/www/exosuite-users-api -type d -exec chown www-data:www-data {} \;
 RUN find  /var/www/exosuite-users-api -type f -exec chown www-data:www-data {} \;
+
+RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"

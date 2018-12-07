@@ -10,3 +10,5 @@ COPY exosuite-website /var/www/exosuite-website
 
 RUN find  /var/www/exosuite-website -type d -exec chown www-data:www-data {} \;
 RUN find  /var/www/exosuite-website -type f -exec chown www-data:www-data {} \;
+
+RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
