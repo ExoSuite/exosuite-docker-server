@@ -2,4 +2,6 @@
 .idea
 venv
 *.pem
-/**/Dockerfile
+nginx/Dockerfile
+php-fpm/Dockerfile
+laravel-artisan/Dockerfile

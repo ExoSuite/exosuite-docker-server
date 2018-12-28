@@ -10,9 +10,9 @@ RUN pecl install -o -f redis \
 
 RUN docker-php-ext-install -j$(nproc) pdo_pgsql pcntl posix bcmath opcache
 
-COPY exosuite-users-api /var/www/exosuite-users-api
+COPY :dir /var/www/:dir
 
-RUN find  /var/www/exosuite-users-api -type d -exec chown www-data:www-data {} \;
-RUN find  /var/www/exosuite-users-api -type f -exec chown www-data:www-data {} \;
+RUN find  /var/www/:dir -type d -exec chown www-data:www-data {} \;
+RUN find  /var/www/:dir -type f -exec chown www-data:www-data {} \;
 
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
