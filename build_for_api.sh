@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-ls -R ../exosuite-users-api/storage/framework
-exit 1
-
 mkdir laravel-artisan/horizon
 mkdir laravel-artisan/daemon
 
