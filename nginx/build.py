@@ -63,12 +63,12 @@ os.chdir(path)
 if opts.api:
     generateCertificates(Domain.API)
     generateDockerfile(Token.api())
-    print("Dockerfile generated for API!")
+    print("Dockerfile generated for nginx API!")
 
 elif opts.website:
     generateCertificates(Domain.WEBSITE)
     generateDockerfile(Token.website())
-    print("Dockerfile generated for Website!")
+    print("Dockerfile generated for nginx Website!")
 
 elif opts.clean:
     os.system("rm -f *.pem && rm -f Dockerfile")

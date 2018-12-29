@@ -48,10 +48,10 @@ os.chdir(path)
 
 if opts.api:
     generateDockerfile(Token.api())
-    print("Dockerfile generated for API!")
+    print("Dockerfile generated for php-fpm API!")
 elif opts.website:
     generateDockerfile(Token.website())
-    print("Dockerfile generated for WEBSITE!")
+    print("Dockerfile generated for php-fpm WEBSITE!")
 elif opts.clean:
     os.system("rm -f Dockerfile")
     print("Directory cleaned!")
