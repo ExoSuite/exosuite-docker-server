@@ -9,4 +9,4 @@ ADD snippets /etc/nginx/snippets
 
 COPY :dir /var/www/:dir
 
-RUN find  /var/www/:dir | xargs chown nginx:nginx
+RUN find  /var/www/:dir/* | xargs chown nginx:nginx

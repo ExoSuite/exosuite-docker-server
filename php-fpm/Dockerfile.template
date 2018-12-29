@@ -12,6 +12,6 @@ RUN docker-php-ext-install -j$(nproc) pdo_pgsql pcntl posix bcmath opcache
 
 COPY :dir /var/www/:dir
 
-RUN find  /var/www/:dir | xargs chown www-data:www-data
+RUN find  /var/www/:dir/* | xargs chown www-data:www-data
 
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
