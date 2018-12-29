@@ -15,4 +15,6 @@ COPY :dir /var/www/:dir
 RUN find  /var/www/:dir -type d -exec chown www-data:www-data {} \;
 RUN find  /var/www/:dir -type f -exec chown www-data:www-data {} \;
 
+WORKDIR /var/www/:dir
+
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"

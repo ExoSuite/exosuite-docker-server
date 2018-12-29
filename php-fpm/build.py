@@ -29,7 +29,7 @@ class Token(Enum):
 
 
 def generateDockerfile(datas):
-    dockerFileContent = open('./Dockerfile.template').read()
+    dockerFileContent = open('./template.Dockerfile').read()
 
     dockerFileContent = dockerFileContent.replace(Token.DIR.value, datas[Token.DIR])
 

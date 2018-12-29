@@ -42,7 +42,7 @@ def generateCertificates(domain: Domain):
 
 
 def generateDockerfile(datas):
-    dockerFileContent = open('./Dockerfile.template').read()
+    dockerFileContent = open('./template.Dockerfile').read()
 
     dockerFileContent = dockerFileContent.replace(Token.CONF.value, datas[Token.CONF]) \
         .replace(Token.DIR.value, datas[Token.DIR].value)
