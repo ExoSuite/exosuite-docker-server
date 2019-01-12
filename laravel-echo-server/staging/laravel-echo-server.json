@@ -17,8 +17,5 @@
   "host": null,
   "port": 6001,
   "protocol": "http",
-  "subscribers": {"redis": true},
-  "socketio": {
-    "wsEngine": "uws"
-  }
+  "subscribers": {"redis": true}
 }
