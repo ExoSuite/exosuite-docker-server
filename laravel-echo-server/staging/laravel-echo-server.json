@@ -1,0 +1,24 @@
+{
+  "authHost": "https://api.dev.exosuite.fr",
+  "authEndpoint": "/broadcasting/auth",
+  "clients": [],
+  "database": "redis",
+  "databaseConfig": {
+    "redis": {
+      "host": "exosuite-redis-live",
+      "port": "6379",
+      "options": {
+        "db": "0"
+      }
+    },
+    "publishPresence": true
+  },
+  "devMode": true,
+  "host": null,
+  "port": 6001,
+  "protocol": "http",
+  "subscribers": {"redis": true},
+  "socketio": {
+    "wsEngine": "uws"
+  }
+}
