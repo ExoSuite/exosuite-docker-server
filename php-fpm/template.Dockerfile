@@ -1,8 +1,8 @@
-FROM php:7.3-fpm-alpine
+FROM php:7.3.1-fpm-alpine
 
 RUN set -ex \
   && apk --no-cache add \
-    postgresql-dev autoconf g++ make
+    postgresql-dev autoconf g++ make fcgi
 
 RUN pecl install -o -f redis \
 &&  rm -rf /tmp/pear \

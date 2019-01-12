@@ -1,4 +1,4 @@
-FROM php:7.3-cli-alpine
+FROM php:7.3.1-cli-alpine
 
 RUN set -ex \
   && apk --no-cache add \
