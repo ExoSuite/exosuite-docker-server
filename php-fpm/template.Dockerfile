@@ -11,6 +11,7 @@ RUN pecl install -o -f redis \
 RUN docker-php-ext-install -j$(nproc) pdo_pgsql pcntl posix bcmath opcache
 
 COPY :dir /var/www/:dir
+COPY php-fpm-healthcheck /usr/local/bin/php-fpm-healthcheck
 
 RUN find  /var/www/:dir -type d -exec chown www-data:www-data {} \;
 RUN find  /var/www/:dir -type f -exec chown www-data:www-data {} \;
