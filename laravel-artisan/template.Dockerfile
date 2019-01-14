@@ -20,7 +20,9 @@ RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
 WORKDIR /var/www/exosuite-users-api
 
-RUN find  /var/www/:dir -type f -exec chmod 644 {} \;
-RUN find  /var/www/:dir -type d -exec chmod 755 {} \;
+RUN chown -R exosuite:exosuite /var/www/exosuite-users-api
+
+RUN find  /var/www/exosuite-users-api -type f -exec chmod 644 {} \;
+RUN find  /var/www/exosuite-users-api -type d -exec chmod 755 {} \;
 
 CMD ["sh", "-c", "php artisan :command"]
