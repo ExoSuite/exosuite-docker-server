@@ -1,4 +1,4 @@
-FROM pagespeed/nginx-pagespeed
+FROM pagespeed/nginx-pagespeed:stable-alpine3.8-ngx1.15
 
 COPY :conf /etc/nginx/conf.d/default.conf
 COPY pagespeed.conf /etc/nginx
