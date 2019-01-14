@@ -15,8 +15,6 @@ ADD snippets /etc/nginx/snippets
 
 COPY :dir /var/www/:dir
 
-COPY ./init.sh /usr/local/bin/init
-
-RUN chmod +x /usr/local/bin/init
+RUN chown -R nginx:nginx /var/www/:dir
 
 
