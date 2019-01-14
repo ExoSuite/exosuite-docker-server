@@ -1,8 +1,5 @@
 #!/usr/bin/env sh
 
-
-chown -R exosuite:exosuite ${APP_DIR}
-
 find  ${APP_DIR} -type f -exec chmod 644 {} \;
 find  ${APP_DIR} -type d -exec chmod 755 {} \;
 
