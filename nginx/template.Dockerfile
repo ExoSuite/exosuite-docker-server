@@ -23,5 +23,7 @@ COPY :dir /var/www/:dir
 
 COPY ./init.sh /usr/local/bin/init
 
+RUN chmod +x /usr/local/bin/init
+
 USER exosuite
 

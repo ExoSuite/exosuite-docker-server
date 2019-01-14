@@ -31,3 +31,5 @@ RUN apk --no-cache add shadow
 RUN usermod -a -G www-data exosuite
 
 USER exosuite
+
+RUN chmod +x /usr/local/bin/init

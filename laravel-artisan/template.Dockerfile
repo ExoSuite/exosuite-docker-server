@@ -11,6 +11,8 @@ RUN set -ex \
 COPY exosuite-users-api /var/www/exosuite-users-api
 COPY ./init.sh /usr/local/bin/init
 
+RUN chmod +x /usr/local/bin/init
+
 RUN pecl install -o -f redis \
 &&  rm -rf /tmp/pear \
 &&  docker-php-ext-enable redis
