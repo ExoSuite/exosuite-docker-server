@@ -1,6 +1,6 @@
 FROM php:7.3.1-fpm-alpine
 
-RUN useradd -ms /bin/bash exosuite
+RUN addgroup -S exosuite && adduser -S exosuite -G exosuite
 
 USER exosuite
 WORKDIR /var/www/:dir

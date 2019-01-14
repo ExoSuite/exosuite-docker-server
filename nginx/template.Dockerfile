@@ -1,6 +1,6 @@
 FROM pagespeed/nginx-pagespeed:stable-alpine3.8-ngx1.15
 
-RUN useradd -ms /bin/bash exosuite
+RUN addgroup -S exosuite && adduser -S exosuite -G exosuite
 
 USER exosuite
 WORKDIR /var/www/:dir
