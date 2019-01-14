@@ -2,8 +2,6 @@ FROM php:7.3.1-fpm-alpine
 
 ENV APP_DIR /var/www/:dir
 
-RUN addgroup -S exosuite && adduser -S exosuite -G exosuite
-
 WORKDIR /var/www/:dir
 
 RUN set -ex \
@@ -27,9 +25,3 @@ WORKDIR /var/www/:dir
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
 COPY www.conf /usr/local/etc/php-fpm.d
-
-RUN apk --no-cache add shadow
-
-RUN usermod -a -G www-data exosuite
-
-USER exosuite
