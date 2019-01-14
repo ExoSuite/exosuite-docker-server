@@ -9,7 +9,7 @@ RUN set -ex \
     postgresql-dev autoconf g++ make
 
 COPY exosuite-users-api /var/www/exosuite-users-api
-COPY init.sh /usr/local/bin/init
+COPY ./init.sh /usr/local/bin/init
 
 RUN pecl install -o -f redis \
 &&  rm -rf /tmp/pear \

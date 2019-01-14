@@ -21,7 +21,7 @@ ADD snippets /etc/nginx/snippets
 
 COPY :dir /var/www/:dir
 
-COPY init.sh /usr/local/bin/init
+COPY ./init.sh /usr/local/bin/init
 
 USER exosuite
 
