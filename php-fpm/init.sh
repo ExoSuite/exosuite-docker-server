@@ -2,7 +2,7 @@
 
 for command in "$@"
 do
-    php ${APP_DIR}/artisan command
+    php ${APP_DIR}/artisan ${command}
 done
 
 chown -R www-data:www-data ${APP_DIR}
