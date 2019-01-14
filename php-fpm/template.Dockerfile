@@ -18,7 +18,7 @@ RUN docker-php-ext-install -j$(nproc) pdo_pgsql pcntl posix bcmath opcache
 
 COPY :dir /var/www/:dir
 COPY php-fpm-healthcheck /usr/local/bin/php-fpm-healthcheck
-COPY init.sh /usr/local/bin
+COPY init.sh /usr/local/bin/init
 
 WORKDIR /var/www/:dir
 

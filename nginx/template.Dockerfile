@@ -1,5 +1,7 @@
 FROM pagespeed/nginx-pagespeed:stable-alpine3.8-ngx1.15
 
+ENV APP_DIR /var/www/:dir
+
 RUN addgroup -S exosuite && adduser -S exosuite -G exosuite
 
 WORKDIR /var/www/:dir
@@ -19,13 +21,7 @@ ADD snippets /etc/nginx/snippets
 
 COPY :dir /var/www/:dir
 
-RUN chown -R exosuite:nginx /var/www/:dir
-
-RUN find  /var/www/:dir -type f -exec chmod 644 {} \;
-RUN find  /var/www/:dir -type d -exec chmod 755 {} \;
-
-RUN chgrp -R nginx /var/www/:dir/storage /var/www/:dir/bootstrap/cache
-RUN chmod -R ug+rwx /var/www/:dir/storage /var/www/:dir/bootstrap/cache
+COPY init.sh /usr/local/bin/init
 
 USER exosuite
 
