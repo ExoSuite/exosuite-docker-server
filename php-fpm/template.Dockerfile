@@ -20,6 +20,8 @@ COPY :dir /var/www/:dir
 COPY php-fpm-healthcheck /usr/local/bin/php-fpm-healthcheck
 COPY ./init.sh /usr/local/bin/init
 
+RUN chmod +x /usr/local/bin/init
+
 WORKDIR /var/www/:dir
 
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
@@ -31,5 +33,3 @@ RUN apk --no-cache add shadow
 RUN usermod -a -G www-data exosuite
 
 USER exosuite
-
-RUN chmod +x /usr/local/bin/init
