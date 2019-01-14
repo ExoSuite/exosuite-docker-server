@@ -1,8 +1,5 @@
 #!/usr/bin/env sh
 
-find  ${APP_DIR} -type f -exec chmod 644 {} \;
-find  ${APP_DIR} -type d -exec chmod 755 {} \;
-
 rm bootstrap/cache/*.php
 php ${APP_DIR}/artisan optimize:clear
 php ${APP_DIR}/artisan package:discover
