@@ -14,4 +14,6 @@ RUN docker-php-ext-install -j$(nproc) pdo_pgsql pcntl posix bcmath opcache
 
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
-CMD ["sh", "-c", "php /var/www/exosuite-users-api/artisan :command"]
+WORKDIR /var/www/exosuite-users-api
+
+CMD ["sh", "-c", "php artisan :command"]
