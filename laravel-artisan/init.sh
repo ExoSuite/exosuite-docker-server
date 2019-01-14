@@ -1,11 +1,11 @@
 #!/usr/bin/env sh
 
 rm bootstrap/cache/*.php
-php artisan optimize:clear
-php artisan package:discover
-php artisan config:cache
-php artisan route:cache
-php artisan view:cache
+php ${APP_DIR}/artisan optimize:clear
+php ${APP_DIR}/artisan package:discover
+php ${APP_DIR}/artisan config:cache
+php ${APP_DIR}/artisan route:cache
+php ${APP_DIR}/artisan view:cache
 
 chown -R exosuite:exosuite ${APP_DIR}
 

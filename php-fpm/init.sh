@@ -1,15 +1,15 @@
 #!/usr/bin/env sh
 
 rm bootstrap/cache/*.php
-php artisan optimize:clear
-php artisan package:discover
-php artisan config:cache
-php artisan route:cache
-php artisan view:cache
+php ${APP_DIR}/artisan optimize:clear
+php ${APP_DIR}/artisan package:discover
+php ${APP_DIR}/artisan config:cache
+php ${APP_DIR}/artisan route:cache
+php ${APP_DIR}/artisan view:cache
 
 for command in "$@"
 do
-    php artisan command
+    php ${APP_DIR}/artisan command
 done
 
 chown -R exosuite:www-data ${APP_DIR}
