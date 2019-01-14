@@ -23,6 +23,10 @@ RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
 COPY www.conf /usr/local/etc/php-fpm.d
 
+RUN apk --no-cache add shadow
+
+RUN usermod -a -G www-data exosuite
+
 RUN chown -R exosuite:www-data /var/www/:dir
 
 RUN find  /var/www/:dir -type f -exec chmod 644 {} \;

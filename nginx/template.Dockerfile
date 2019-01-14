@@ -4,6 +4,8 @@ RUN addgroup -S exosuite && adduser -S exosuite -G exosuite
 
 WORKDIR /var/www/:dir
 
+RUN apk --no-cache add shadow
+
 RUN usermod -a -G nginx exosuite
 
 COPY :conf /etc/nginx/conf.d/default.conf
