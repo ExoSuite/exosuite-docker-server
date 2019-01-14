@@ -2,8 +2,6 @@ FROM php:7.3.1-cli-alpine
 
 RUN addgroup -S exosuite && adduser -S exosuite -G exosuite
 
-USER exosuite
-
 RUN set -ex \
   && apk --no-cache add \
     postgresql-dev autoconf g++ make
@@ -24,5 +22,7 @@ RUN chown -R exosuite:exosuite /var/www/exosuite-users-api
 
 RUN find  /var/www/exosuite-users-api -type f -exec chmod 644 {} \;
 RUN find  /var/www/exosuite-users-api -type d -exec chmod 755 {} \;
+
+USER exosuite
 
 CMD ["sh", "-c", "php artisan :command"]

@@ -2,7 +2,6 @@ FROM php:7.3.1-fpm-alpine
 
 RUN addgroup -S exosuite && adduser -S exosuite -G exosuite
 
-USER exosuite
 WORKDIR /var/www/:dir
 
 RUN set -ex \
@@ -31,3 +30,5 @@ RUN find  /var/www/:dir -type d -exec chmod 755 {} \;
 
 RUN chgrp -R www-data /var/www/:dir/storage /var/www/:dir/bootstrap/cache
 RUN chmod -R ug+rwx /var/www/:dir/storage /var/www/:dir/bootstrap/cache
+
+USER exosuite

@@ -2,7 +2,6 @@ FROM pagespeed/nginx-pagespeed:stable-alpine3.8-ngx1.15
 
 RUN addgroup -S exosuite && adduser -S exosuite -G exosuite
 
-USER exosuite
 WORKDIR /var/www/:dir
 
 RUN usermod -a -G nginx exosuite
@@ -25,4 +24,6 @@ RUN find  /var/www/:dir -type d -exec chmod 755 {} \;
 
 RUN chgrp -R nginx /var/www/:dir/storage /var/www/:dir/bootstrap/cache
 RUN chmod -R ug+rwx /var/www/:dir/storage /var/www/:dir/bootstrap/cache
+
+USER exosuite
 
