@@ -17,7 +17,7 @@ RUN pecl install -o -f redis \
 
 RUN docker-php-ext-install -j$(nproc) pdo_pgsql pcntl posix bcmath opcache
 
-RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
+COPY php.ini "$PHP_INI_DIR/php.ini"
 
 WORKDIR /var/www/exosuite-users-api
 

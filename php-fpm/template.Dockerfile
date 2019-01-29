@@ -22,7 +22,7 @@ RUN chmod +x /usr/local/bin/init
 
 WORKDIR /var/www/:dir
 
-RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
+COPY php.ini "$PHP_INI_DIR/php.ini"
 
 COPY www.conf /usr/local/etc/php-fpm.d
 

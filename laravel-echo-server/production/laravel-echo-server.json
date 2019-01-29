@@ -17,5 +17,7 @@
   "host": null,
   "port": 6001,
   "protocol": "http",
-  "subscribers": {"redis": true}
+  "subscribers": {
+    "redis": true
+  }
 }
