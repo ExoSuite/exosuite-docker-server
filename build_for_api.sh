@@ -7,8 +7,8 @@ cp -R ../exosuite-users-api php-fpm
 cp -R ../exosuite-users-api nginx
 cp -R ../exosuite-users-api laravel-artisan/horizon
 cp -R ../exosuite-users-api laravel-artisan/daemon
-cp laravel-artisan/init.sh laravel-artisan/horizon
-cp laravel-artisan/init.sh laravel-artisan/daemon
+
+./copy_files_for_artisan.sh
 
 python3.5 nginx/build.py --api
 python3.5 php-fpm/build.py --api
