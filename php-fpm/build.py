@@ -28,8 +28,12 @@ class Token(Enum):
         return data
 
 
-def generateDockerfile(datas):
-    dockerFileContent = open('./template.Dockerfile').read()
+def generateDockerfile(datas, isTesting: bool):
+
+    if isTesting:
+        dockerFileContent = open('./template.testing.Dockerfile').read()
+    else:
+        dockerFileContent = open('./template.Dockerfile').read()
 
     dockerFileContent = dockerFileContent.replace(Token.DIR.value, datas[Token.DIR])
 
@@ -41,16 +45,17 @@ def generateDockerfile(datas):
 parser = optparse.OptionParser()
 parser.add_option("--website", action="store_true", dest="website")
 parser.add_option("--api", action='store_true', dest="api")
+parser.add_option("--testing", action='store_true', dest="testing")
 parser.add_option("--clean", action='store_true', dest="clean")
 (opts, args) = parser.parse_args()
 
 os.chdir(path)
 
 if opts.api:
-    generateDockerfile(Token.api())
+    generateDockerfile(Token.api(), opts.testing)
     print("Dockerfile generated for php-fpm API!")
 elif opts.website:
-    generateDockerfile(Token.website())
+    generateDockerfile(Token.website(), opts.testing)
     print("Dockerfile generated for php-fpm WEBSITE!")
 elif opts.clean:
     os.system("rm -f Dockerfile")
