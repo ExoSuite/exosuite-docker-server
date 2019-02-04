@@ -30,10 +30,13 @@ class Token(Enum):
 
 def generateDockerfile(datas, isTesting: bool):
 
+    dockerFileContent = open('./template.Dockerfile').read()
+
     if isTesting:
-        dockerFileContent = open('./template.testing.Dockerfile').read()
-    else:
-        dockerFileContent = open('./template.Dockerfile').read()
+        dockerFileContent = dockerFileContent \
+            .replace("RUN chown -R www-data:www-data /var/www/:dir", "") \
+            .replace("COPY :dir /var/www/:dir", "") \
+            .replace('WORKDIR /var/www/:dir', "")
 
     dockerFileContent = dockerFileContent.replace(Token.DIR.value, datas[Token.DIR])
 

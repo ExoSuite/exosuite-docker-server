@@ -28,10 +28,18 @@ class Token(Enum):
         return data
 
 
-def generateDockerfile(datas):
+def generateDockerfile(datas, isTesting: bool):
+
     dockerFileContent = open('./template.Dockerfile').read()
 
+    if isTesting:
+        dockerFileContent = dockerFileContent \
+            .replace("COPY exosuite-users-api /var/www/exosuite-users-api", "") \
+            .replace("WORKDIR /var/www/exosuite-users-api", "") \
+            .replace('CMD ["sh", "-c", "php artisan :command"]', "")
+
     dockerFileContent = dockerFileContent.replace(Token.COMMAND.value, datas[Token.COMMAND])
+
 
     f = open("Dockerfile", "w")
     f.write(dockerFileContent)
@@ -41,17 +49,18 @@ def generateDockerfile(datas):
 parser = optparse.OptionParser()
 parser.add_option("--daemon", action="store_true", dest="daemon")
 parser.add_option("--horizon", action='store_true', dest="horizon")
+parser.add_option("--testing", action='store_true', dest="testing")
 parser.add_option("--clean", action='store_true', dest="clean")
 (opts, args) = parser.parse_args()
 
 os.chdir(path)
 
 if opts.horizon:
-    generateDockerfile(Token.horizon())
+    generateDockerfile(Token.horizon(), opts.testing)
     print("Dockerfile generated for", Command.HORIZON.value, "!")
 
 elif opts.daemon:
-    generateDockerfile(Token.daemon())
+    generateDockerfile(Token.daemon(), opts.testing)
     print("Dockerfile generated for", Command.DAEMON.value, "!")
 
 elif opts.clean:

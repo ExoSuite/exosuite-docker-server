@@ -2,8 +2,6 @@ FROM php:7.3.1-fpm-alpine
 
 ENV APP_DIR /var/www/:dir
 
-WORKDIR /var/www/:dir
-
 RUN set -ex \
   && apk --no-cache add \
     postgresql-dev autoconf g++ make fcgi libpng-dev freetype-dev libjpeg-turbo-dev libpng libjpeg-turbo freetype
