@@ -29,7 +29,6 @@ class Token(Enum):
 
 
 def generateDockerfile(datas, isTesting: bool):
-
     dockerFileContent = open('./template.Dockerfile').read()
 
     if isTesting:
@@ -39,7 +38,6 @@ def generateDockerfile(datas, isTesting: bool):
             .replace('CMD ["sh", "-c", "php artisan :command"]', "")
 
     dockerFileContent = dockerFileContent.replace(Token.COMMAND.value, datas[Token.COMMAND])
-
 
     f = open("Dockerfile", "w")
     f.write(dockerFileContent)
