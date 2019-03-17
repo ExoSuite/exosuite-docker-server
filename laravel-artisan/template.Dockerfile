@@ -1,7 +1,7 @@
 FROM php:7.3.3-cli-alpine
 
 ARG ENTRYPOINT_DIR
-ENV WORKDIR /var/www/exosuite-users-api
+ENV WORKDIR "/var/www/exosuite-users-api"
 
 COPY exosuite-users-api /var/www/exosuite-users-api
 COPY ./init.sh /usr/local/bin/init
