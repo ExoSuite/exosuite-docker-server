@@ -19,6 +19,6 @@ ADD snippets /etc/nginx/snippets
 
 COPY :dir /var/www/:dir
 
-#RUN chown -R nginx:nginx /var/www/:dir
+RUN chown -R nginx:nginx /var/www/:dir/public
 
 
