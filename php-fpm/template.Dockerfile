@@ -2,7 +2,7 @@ FROM php:7.3.3-fpm-alpine
 
 ENV APP_DIR /var/www/:dir
 
-RUN adduser exosuite -S -H -G exosuite
+RUN addgroup exosuite && adduser exosuite -S -H -G exosuite
 
 RUN set -ex \
   && apk --no-cache add \
