@@ -19,6 +19,8 @@ ADD snippets /etc/nginx/snippets
 
 COPY :dir /var/www/:dir
 
+RUN mkdir /etc/nginx/.pagespeed_auth
+
 COPY .htpasswd /etc/nginx/.pagespeed_auth
 COPY pagespeed_admin.conf /etc/nginx
 
