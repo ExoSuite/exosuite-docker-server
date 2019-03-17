@@ -22,11 +22,6 @@ RUN docker-php-ext-install -j$(nproc) pdo_pgsql pcntl posix bcmath opcache gd ex
 
 COPY --chown=exosuite:exosuite :dir /var/www/:dir
 
-RUN chown -R exosuite:www-data /var/www/:dir/storage
-RUN chown -R exosuite:www-data /var/www/:dir/bootstrap/cache
-RUN chmod -R 775 /var/www/:dir/storage
-RUN chmod -R 775 /var/www/:dir/bootstrap/cache
-
 
 COPY php-fpm-healthcheck /usr/local/bin/php-fpm-healthcheck
 COPY ./init.sh /usr/local/bin/init
