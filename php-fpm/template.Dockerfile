@@ -2,6 +2,8 @@ FROM php:7.3.3-fpm-alpine
 
 ENV APP_DIR /var/www/:dir
 
+RUN adduser exosuite -S -H -G exosuite
+
 RUN set -ex \
   && apk --no-cache add \
     postgresql-dev autoconf g++ make fcgi libpng-dev freetype-dev libjpeg-turbo-dev libpng libjpeg-turbo freetype
@@ -18,7 +20,14 @@ RUN docker-php-ext-configure gd \
 
 RUN docker-php-ext-install -j$(nproc) pdo_pgsql pcntl posix bcmath opcache gd exif
 
-COPY :dir /var/www/:dir
+COPY --chown=exosuite:exosuite :dir /var/www/:dir
+
+RUN chown -R exosuite:www-data storage
+RUN chown -R exosuite:www-data bootstrap/cache
+RUN chmod -R 775 storage
+RUN chmod -R 775 bootstrap/cache
+
+
 COPY php-fpm-healthcheck /usr/local/bin/php-fpm-healthcheck
 COPY ./init.sh /usr/local/bin/init
 
