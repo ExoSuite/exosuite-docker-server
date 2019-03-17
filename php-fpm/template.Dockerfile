@@ -30,7 +30,7 @@ COPY php.ini "$PHP_INI_DIR/php.ini"
 
 COPY www.conf /usr/local/etc/php-fpm.d
 
-RUN chown -R www-data:www-data /var/www/:dir
+#RUN chown -R www-data:www-data /var/www/:dir
 
 RUN apk add --no-cache --update libmemcached-libs zlib
 RUN set -xe && \
