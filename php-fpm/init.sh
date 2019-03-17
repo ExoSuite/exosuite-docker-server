@@ -1,10 +1,5 @@
 #!/usr/bin/env sh
 
-chown -R exosuite:www-data ${APP_DIR}/storage
-chown -R exosuite:www-data ${APP_DIR}/bootstrap/cache
-chmod -R 775 ${APP_DIR}/storage
-chmod -R 775 ${APP_DIR}/bootstrap/cache
-
 for command in "$@"
 do
     php ${APP_DIR}/artisan ${command}
