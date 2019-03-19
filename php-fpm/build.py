@@ -34,7 +34,7 @@ def generateDockerfile(datas, isTesting: bool):
 
     if isTesting:
         dockerFileContent = dockerFileContent \
-            .replace("RUN chown -R www-data:www-data /var/www/:dir", "") \
+            .replace("COPY --chown=exosuite:www-data :dir /var/www/:dir", "") \
             .replace("COPY :dir /var/www/:dir", "") \
             .replace('WORKDIR /var/www/:dir', "")
 
