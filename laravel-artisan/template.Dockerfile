@@ -54,4 +54,4 @@ COPY laravel-artisan-entrypoint.sh /usr/local/bin/laravel-artisan-entrypoint
 
 RUN chmod +x /usr/local/bin/laravel-artisan-entrypoint
 
-CMD ["sh", "-c", "/usr/local/bin/laravel-artisan-entrypoint"]
+ENTRYPOINT ["/usr/local/bin/laravel-artisan-entrypoint"]
