@@ -33,7 +33,7 @@ def generateDockerfile(datas, isTesting: bool):
 
     if isTesting:
         dockerFileContent = dockerFileContent \
-            .replace("COPY exosuite-users-api /var/www/exosuite-users-api", "") \
+            .replace("COPY --chown=exosuite:www-data exosuite-users-api /var/www/exosuite-users-api", "") \
             .replace("WORKDIR /var/www/exosuite-users-api", "") \
             .replace('CMD ["sh", "-c", "php artisan :command"]', "")
 
