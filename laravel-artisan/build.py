@@ -35,7 +35,7 @@ def generateDockerfile(datas, isTesting: bool):
         dockerFileContent = dockerFileContent \
             .replace("COPY exosuite-users-api /var/www/exosuite-users-api", "") \
             .replace("WORKDIR /var/www/exosuite-users-api", "") \
-            .replace('CMD ["sh", "-c", "php artisan :command"]', "")
+            .replace('ENTRYPOINT ["/usr/local/bin/laravel-artisan-entrypoint"]', "")
 
     dockerFileContent = dockerFileContent.replace(Token.COMMAND.value, datas[Token.COMMAND])
 
