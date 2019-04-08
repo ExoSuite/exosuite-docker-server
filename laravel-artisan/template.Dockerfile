@@ -1,4 +1,4 @@
-FROM php:7.3.3-cli-alpine
+FROM php:7.3.4-cli-alpine
 
 ENV WORKDIR "/var/www/exosuite-users-api"
 
