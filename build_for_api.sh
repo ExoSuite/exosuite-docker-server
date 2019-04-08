@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 mkdir -p laravel-artisan/horizon
 mkdir -p laravel-artisan/scheduler

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 cp -R ../exosuite-website php-fpm
 cp -R ../exosuite-website nginx
