@@ -20,7 +20,7 @@ RUN docker-php-ext-configure gd \
 
 RUN docker-php-ext-install -j$(nproc) pdo_pgsql pcntl posix bcmath opcache gd exif
 
-COPY --chown=exosuite:exosuite :dir /var/www/:dir
+COPY --chown=exosuite:www-data :dir /var/www/:dir
 
 COPY php-fpm-healthcheck /usr/local/bin/php-fpm-healthcheck
 COPY ./init.sh /usr/local/bin/init
