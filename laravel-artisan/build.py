@@ -37,7 +37,8 @@ def generateDockerfile(datas, isTesting: bool):
             .replace("WORKDIR /var/www/exosuite-users-api", "") \
             .replace('ENTRYPOINT ["/usr/local/bin/laravel-artisan-entrypoint"]', "") \
             .replace("COPY laravel-artisan-entrypoint.sh /usr/local/bin/laravel-artisan-entrypoint", "") \
-            .replace("RUN chmod +x /usr/local/bin/laravel-artisan-entrypoint", "")
+            .replace("RUN chmod +x /usr/local/bin/laravel-artisan-entrypoint", "") \
+            .replace('ENTRYPOINT ["/usr/local/bin/laravel-artisan-entrypoint"]', 'ENTRYPOINT ["tail", "-f", "/dev/null"]')
 
     dockerFileContent = dockerFileContent.replace(Token.COMMAND.value, datas[Token.COMMAND])
 
