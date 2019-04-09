@@ -27,6 +27,8 @@ COPY ./init.sh /usr/local/bin/init
 
 RUN chmod +x /usr/local/bin/init
 
+RUN chmod -R 775 /var/www/:dir/storage && chmod -R 775 /var/www/:dir/bootstrap/cache
+
 WORKDIR /var/www/:dir
 
 COPY php.ini "$PHP_INI_DIR/php.ini"
