@@ -20,12 +20,16 @@ RUN docker-php-ext-configure gd \
 
 RUN docker-php-ext-install -j$(nproc) pdo_pgsql pcntl posix bcmath opcache gd exif
 
-COPY --chown=exosuite:www-data :dir /var/www/:dir
+COPY --chown=exosuite:exosuite :dir /var/www/:dir
 
 COPY php-fpm-healthcheck /usr/local/bin/php-fpm-healthcheck
 COPY ./init.sh /usr/local/bin/init
 
 RUN chmod +x /usr/local/bin/init
+
+RUN echo "" > /var/www/:dir/storage/logs/laravel.log
+
+RUN chown -R exosuite:www-data /var/www/:dir/storage && chown -R exosuite:www-data /var/www/:dir/bootstrap/cache
 
 RUN chmod -R 775 /var/www/:dir/storage && chmod -R 775 /var/www/:dir/bootstrap/cache
 
