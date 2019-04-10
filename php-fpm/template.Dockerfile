@@ -53,9 +53,10 @@ COPY www.conf /usr/local/etc/php-fpm.d
 
 RUN chmod +x /usr/local/bin/init
 
+COPY --chown=exosuite:www-data :dir /var/www/:dir
+
 RUN echo "" > /var/www/:dir/storage/logs/laravel.log
 
-COPY --chown=exosuite:www-data :dir /var/www/:dir
 
 RUN chown -R exosuite:www-data /var/www/:dir/storage && chown -R exosuite:www-data /var/www/:dir/bootstrap/cache
 
