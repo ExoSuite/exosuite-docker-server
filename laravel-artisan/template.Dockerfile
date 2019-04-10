@@ -2,7 +2,6 @@ FROM php:7.3.4-cli-alpine
 
 ENV WORKDIR "/var/www/exosuite-users-api"
 
-COPY exosuite-users-api /var/www/exosuite-users-api
 COPY ./init.sh /usr/local/bin/init
 
 RUN chmod +x /usr/local/bin/init
@@ -53,5 +52,7 @@ RUN set -xe && \
 COPY laravel-artisan-entrypoint.sh /usr/local/bin/laravel-artisan-entrypoint
 
 RUN chmod +x /usr/local/bin/laravel-artisan-entrypoint
+
+COPY exosuite-users-api /var/www/exosuite-users-api
 
 ENTRYPOINT ["/usr/local/bin/laravel-artisan-entrypoint"]
