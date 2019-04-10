@@ -1,5 +1,5 @@
 {
-  "authHost": "https://api.dev.exosuite.fr",
+  "authHost": "https://api.teamexosuite.cloud",
   "authEndpoint": "/broadcasting/auth",
   "clients": [],
   "database": "redis",

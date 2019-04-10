@@ -24,12 +24,12 @@ parser.check_required("--version")
 
 if opts.staging:
     os.system(
-        "sudo docker build --build-arg ENV=staging -t dev.exosuite.fr:5000/exosuite/exosuite-laravel-echo-server:"
+        "sudo docker build --build-arg ENV=staging -t teamexosuite.cloud:5000/exosuite/exosuite-laravel-echo-server:"
         + opts.version + " ."
     )
-    os.system("sudo docker login dev.exosuite.fr:5000 -u exosuite-dev -p N8jSfUeH4kPyYSLW")
-    os.system("sudo docker push dev.exosuite.fr:5000/exosuite/exosuite-laravel-echo-server:" + opts.version)
-    os.system("sudo docker logout dev.exosuite.fr:5000")
+    os.system("sudo docker login teamexosuite.cloud:5000 -u exosuite-dev -p N8jSfUeH4kPyYSLW")
+    os.system("sudo docker push teamexosuite.cloud:5000/exosuite/exosuite-laravel-echo-server:" + opts.version)
+    os.system("sudo docker logout teamexosuite.cloud:5000")
 elif opts.production:
     os.system(
         "sudo docker build --build-arg ENV=production -t exosuite.fr:5000/exosuite/exosuite-laravel-echo-server:"
