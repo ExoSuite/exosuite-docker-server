@@ -23,4 +23,4 @@ RUN mkdir /etc/nginx/.pagespeed_auth
 
 COPY .htpasswd /etc/nginx/.pagespeed_auth
 COPY pagespeed_admin.conf /etc/nginx
-
+COPY pagespeed.conf /etc/nginx/conf.d
