@@ -25,4 +25,4 @@ COPY .htpasswd /etc/nginx/.pagespeed_auth
 COPY pagespeed_admin.conf /etc/nginx
 COPY pagespeed.conf /etc/nginx/conf.d
 
-RUN echo "pagespeed GoogleFontCssInlineMaxBytes 10240;" > /etc/nginx/conf.d/pagespeed-css.conf
+RUN echo "pagespeed GoogleFontCssInlineMaxBytes 10240;" >> /etc/nginx/conf.d/pagespeed-css.conf
