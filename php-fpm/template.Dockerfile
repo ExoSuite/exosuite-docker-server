@@ -6,11 +6,11 @@ RUN addgroup exosuite && adduser exosuite -S -H -G exosuite
 
 RUN set -ex \
   && apk --no-cache add \
-    postgresql-dev autoconf g++ make fcgi libpng-dev freetype-dev libjpeg-turbo-dev libpng libjpeg-turbo freetype
+    postgresql-dev autoconf g++ make libpng-dev freetype-dev libjpeg-turbo-dev libpng libjpeg-turbo freetype imagemagick-dev
 
-RUN pecl install -o -f redis \
+RUN pecl install -o -f redis imagick \
 &&  rm -rf /tmp/pear \
-&&  docker-php-ext-enable redis
+&&  docker-php-ext-enable redis imagick
 
 RUN docker-php-ext-configure gd \
         --with-gd \
