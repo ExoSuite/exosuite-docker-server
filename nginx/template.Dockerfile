@@ -1,4 +1,4 @@
-FROM crunchgeek/nginx-pagespeed
+FROM crunchgeek/nginx-pagespeed:1.17.3
 
 ENV NGINX_PAGESPEED=on
 ENV NGINX_PAGESPEED_IMG=off
