@@ -1,4 +1,4 @@
-FROM php:7.3.8-fpm-alpine
+FROM php:7.3.11-fpm-alpine
 
 ENV APP_DIR /var/www/:dir
 
